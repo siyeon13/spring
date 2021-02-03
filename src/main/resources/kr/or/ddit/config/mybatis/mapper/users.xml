@@ -60,7 +60,7 @@
   
   <insert id="insertUser" parameterType="userVo" >
   	insert into users (userid , usernm, pass, reg_dt ,alias ,addr1, addr2, zipcode,filename,realfilename )  
-			values (#{userid},#{usernm},#{pass},#{reg_dt},#{alias},#{addr1}, #{addr2},#{zipcode}, #{filename},#{realfilename})
+			values (#{userid},#{usernm},#{pass},sysdate,#{alias},#{addr1}, #{addr2},#{zipcode}, #{filename},#{realfilename})
   	
   </insert> 
   

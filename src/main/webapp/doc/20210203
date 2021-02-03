@@ -1,0 +1,88 @@
+server side 검증
+1. spring Validator
+	구현방법 : interface Validator를 구현
+	
+2. JSR-303(규약은 계속 추가/수정 됨)
+	어노테이션을 이용 ==> command 객체에 이용
+	@NotNull
+	@Min, @Max
+	@Size(min, max)
+	@Pattern(정규식)
+	
+	==>
+	
+1번 : 구체적으로 작성 가능, 복잡한 로직 검증 가능
+2번 : 간단한 형태로만 검증 가능
+
+
+1. resourceBundle 파일 준비 (error.properties....)
+2. messageSource 스프링 빈 등록 (ReloadableResourceBundelMessageSource)
+3. validator, controller에 validate 메소드 실행
+4. jsp  <form:errors path="커맨드객체.필드" /> ==> 해당 필드에 에러가 있을 때만 메세지를 표현
+
+
+spring message
+spring message : <spring:message code="GREETING" arguments="brown"/>
+
+
+view Resolver : controller가 반환하는 view name을 이용하여 해당 요청을 생성할
+				view객체를 선택
+복수의 view resolver 등록이 가능
+view resolver 의 우선순위를 설정하여 적용될 순서를 결정할 수 있다
+
+기존 : internalResourceViewResolver
+추가 : BeanNameViewResolver
+	==> 컨트롤러가 반환하는 view name과 동일한 이름의 스프링 빈이 있으면
+		해당 스프링 빈을 view 객체로 사용
+		
+****** internalResourceViewResolver 사용시 주의점
+==> prefix, surrfix 조합에 의해 생성된 문자열에 해당하는 리소스 (jsp)가 없어도
+	검증을 하지 않고 응답으로 내보낸다
+	즉 파일이 존재하지 않을 경우 404 에러 발생
+	
+	==> 우선순위를 가장 최 하위로 둔다						
+
+interceptor / filter 차이
+
+--------------------------------------
+resourceBundle 스프링 빈 등록 
+
+container
+
+	parent : Model 📌📌	
+	child : Controller
+--------------------------------------
+
+ExcelDownloadView
+우리 회사의 전체 직원 리스트 
+1. ajax
+2. 엑셀 다운
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+	
+	
