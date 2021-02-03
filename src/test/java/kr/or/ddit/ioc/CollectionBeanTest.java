@@ -11,7 +11,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:kr/or/ddit/ioc/ioc.xml")
+@ContextConfiguration(locations = {"classpath:kr/or/ddit/ioc/ioc.xml",
+		"classpath:/kr/or/ddit/config/spring/datasource-context.xml"})
 public class CollectionBeanTest {
 
 	// collectionBean 스프링빈이 정상적으로 생성 되었는지
