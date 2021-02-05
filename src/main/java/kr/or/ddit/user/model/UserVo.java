@@ -1,5 +1,6 @@
 package kr.or.ddit.user.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.validation.constraints.Size;
@@ -54,6 +55,12 @@ public class UserVo {
 	public Date getReg_dt() {
 		return reg_dt;
 	}
+	
+	public String getReg_dt_fmt() {
+		return new SimpleDateFormat("yyyy-MM-dd").format(reg_dt);
+		
+	}
+	
 
 	public void setReg_dt(Date reg_dt) {
 		this.reg_dt = reg_dt;
@@ -193,9 +200,6 @@ public class UserVo {
 		setFilename(realfilename);
 		setRealfilename(realfilename);
 		setReg_dt(reg_dt);
-		
-		
-		
 	}
 
 

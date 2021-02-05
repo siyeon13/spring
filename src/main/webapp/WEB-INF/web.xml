@@ -27,8 +27,9 @@
   	<init-param>
   		<param-name>contextConfigLocation</param-name> <!-- 이름 미리 지정되어 있음 -->
   		<param-value>classpath:/kr/or/ddit/config/spring/application-context.xml
-  					
   		</param-value>
+<!--   					classpath:/kr/or/ddit/config/spring/interceptor-context.xml -->
+
   	</init-param>
   </servlet>
   <servlet-mapping>

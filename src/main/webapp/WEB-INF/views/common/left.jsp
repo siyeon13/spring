@@ -7,6 +7,9 @@
 	
 	<li class="active"><a href="${cp}/user/pagingUser">사용자 페이징 리스트</a></li>
 	<li class="active"><a href="${cp}/user/pagingUserTiles">사용자 페이징 리스트(타일즈)</a></li>
+	<li class="active"><a href="${cp}/user/pagingUserAjaxView">사용자 페이징 리스트(ajax)</a></li>
+
+
 <%-- 	<li class="active"><a href="${cp}/pagingUser?page=1&pageSize=5">사용자 페이징 리스트</a></li>
  --%>	
 	<%-- localhost/pagingUser?page=1&pageSize=5 로 요청시

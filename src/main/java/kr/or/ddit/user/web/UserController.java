@@ -88,6 +88,51 @@ public class UserController {
 		return "tiles.user.pagingUser";
 	}
 	
+	// 사용자 리스트가 없는 상태의 화면만 응답으로 생성
+	@RequestMapping("pagingUserAjaxView")
+	public String pagingUserAjaxView() {
+		
+		return "tiles.user.pagingUserAjax";
+	}
+	
+	
+	
+	
+	// Ajax 활용 
+	@RequestMapping("pagingUserAjax")
+	public String pagingUserAjax(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "5") int pageSize,
+			Model model) {
+		
+		PageVo pageVo = new PageVo(page, pageSize);
+		
+		model.addAllAttributes(userService.selectPagingUser(pageVo));
+		logger.debug("pageVo : {}", pageVo);
+		// tiles-definition 에 설정한 name
+		return "jsonView";
+	}
+	
+	
+	
+	
+	// HTML 활용 
+	@RequestMapping("pagingUserAjaxHtml")
+	public String pagingUserAjaxHtml(@RequestParam(defaultValue = "1") int page,
+			@RequestParam(defaultValue = "5") int pageSize,
+			Model model) {
+		
+		PageVo pageVo = new PageVo(page, pageSize);
+		
+		model.addAllAttributes(userService.selectPagingUser(pageVo));
+		logger.debug("pageVo : {}", pageVo);
+		// tiles-definition 에 설정한 name
+		return "user/pagingUserAjaxHtml";
+		
+		/*
+		 	pagingUserAjaxHtml ==> WEB-INF/views/user/pagingUserAjaxHtml.jsp
+		 */
+	}
+	
 	
 	//@RequestMapping("pagingUser")
 	public String pagingUser(PageVo pageVo) {
@@ -138,7 +183,8 @@ public class UserController {
 	
 	@RequestMapping(path="regist", method=RequestMethod.GET)
 	public String regist() {
-		return "user/registUser";
+//		return "user/registUser";
+		return "tiles.user.registUser";
 	}
 	
 	
@@ -170,7 +216,8 @@ public class UserController {
 			
 			if(result.hasErrors()) {
 				logger.debug("result has error");
-				return "user/registUser";
+//				return "user/registUser";
+				return "tiles.user.registUser";
 			}
 			
 			int insertCnt = 0;
@@ -200,7 +247,8 @@ public class UserController {
 			}
 			//사용자 수정이 비정상적으로 된 경우 ==> 사용자 등록 페이지로 이동(사용자가 입력한 값 설정)
 			else {
-				return "user/registUser";
+			//	return "user/registUser";
+				return "tiles.user.registUser";
 			}
 		}
 	
